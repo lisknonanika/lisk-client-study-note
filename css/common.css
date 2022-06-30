@@ -1,0 +1,57 @@
+html { font-size: 10px; }
+
+body { font-size: 1.6rem; }
+
+input[type="text"],
+input[type="number"],
+input[type="password"],
+textarea,
+button {
+    font-size: 1.6rem;
+    padding: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+h4 {
+    margin: 0px;
+}
+
+#area-testPassphrase {
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 1px solid #99ad6e;
+    background-color: #d8e9b2;
+    padding: 10px;
+}
+
+#area-accountInfo {
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 1px solid #6e84ad;
+    background-color: #dbecff;
+    padding: 10px;
+}
+
+#lisk-passphrase,
+#lisk-bufferAddress,
+#lisk-publicKey,
+#lisk-balance {
+    margin-bottom: 10px;
+}
+
+#area-transactions {
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 1px solid #bd8484;
+    background-color: #ffd9d9;
+    padding: 10px;
+}
+
+#lisk-transactions .row-transaction {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    border: 1px solid #696464;
+    background-color: #f3eaea;
+    padding: 10px;
+}
