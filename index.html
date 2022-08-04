@@ -9,85 +9,85 @@
 		<link rel="stylesheet" href="css/common.css">
 	</head>
 	<body>
-        <div id="area-login">
-            <h4>パスフレーズ：</h4>
-            <div>
-                <input type="password" id="enter-passphrase" style="width: 750px;" placeholder="パスフレーズを入力してください" oninput="checkPassphrase(this.value)" />
-            </div>
-            <div>
-                <button type="button" id="btn-login" style="width: 150px;" onclick="login()" disabled="true">ログイン</button>
-                <button type="button" style="width: 150px;" onclick="createAccount()">アカウントを作成</button>
-            </div>
-            <div>
-                <a href="https://testnet-faucet.lisk.com/" target="_blank" rel="noopener noreferrer">テストネット用のLSKを受け取ります</a>
-            </div>
-        </div>
+		<div id="area-login">
+			<h4>パスフレーズ：</h4>
+			<div>
+				<input type="password" id="enter-passphrase" style="width: 750px;" placeholder="パスフレーズを入力してください" oninput="checkPassphrase(this.value)" />
+			</div>
+			<div>
+				<button type="button" id="btn-login" style="width: 150px;" onclick="login()" disabled="true">ログイン</button>
+				<button type="button" style="width: 150px;" onclick="createAccount()">アカウントを作成</button>
+			</div>
+			<div>
+				<a href="https://testnet-faucet.lisk.com/" target="_blank" rel="noopener noreferrer">テストネット用のLSKを受け取ります</a>
+			</div>
+		</div>
 
-        <div id="area-logoff" style="display: none;">
-            <button type="button" id="btn-logoff" style="width: 150px;" onclick="logoff()">ログオフ</button>
-        </div>
+		<div id="area-logoff" style="display: none;">
+			<button type="button" id="btn-logoff" style="width: 150px;" onclick="logoff()">ログオフ</button>
+		</div>
 
-        <div id="area-send" style="display: none;">
-            
-            <h4>送信先(必須)：</h4>
-            <div>
-                <input type="text" id="enter-recipient" style="width: 750px;" placeholder="送信先アドレスを入力してください (例：lsk9g3k58b3gzcykjyaob9ekbt3a7b3e586h4gkxj)" oninput="showMinFee()"/>
-            </div>
-            
-            <h4>送信枚数(必須)：</h4>
-            <div>
-                <input type="number" id="enter-amount" style="width: 750px;" placeholder="送信枚数を入力してください (0以上の数値)" oninput="showMinFee()"/>
-            </div>
+		<div id="area-send" style="display: none;">
+			
+			<h4>送信先(必須)：</h4>
+			<div>
+				<input type="text" id="enter-recipient" style="width: 750px;" placeholder="送信先アドレスを入力してください (例：lsk9g3k58b3gzcykjyaob9ekbt3a7b3e586h4gkxj)" oninput="showMinFee()"/>
+			</div>
+			
+			<h4>送信枚数(必須)：</h4>
+			<div>
+				<input type="number" id="enter-amount" style="width: 750px;" placeholder="送信枚数を入力してください (0以上の数値)" oninput="showMinFee()"/>
+			</div>
 
-            <h4>メモ：</h4>
-            <div>
-                <input type="text" id="enter-memo" style="width: 750px;" placeholder="メモを入力してください" oninput="showMinFee()"/>
-            </div>
+			<h4>メモ：</h4>
+			<div>
+				<input type="text" id="enter-memo" style="width: 750px;" placeholder="メモを入力してください" oninput="showMinFee()"/>
+			</div>
 
-            <h4>手数料：</h4>
-            <div id="disp-fee">???LSK</div>
+			<h4>手数料：</h4>
+			<div id="disp-fee">???LSK</div>
 
-            <div>
-                <button type="button" id="btn-send" style="width: 150px;" onclick="send()">送信</button>
-                <button type="button" id="btn-reload" style="width: 150px;" onclick="reload()">情報を最新化</button>
-            </div>
-        </div>
+			<div>
+				<button type="button" id="btn-send" style="width: 150px;" onclick="send()">送信</button>
+				<button type="button" id="btn-reload" style="width: 150px;" onclick="reload()">情報を最新化</button>
+			</div>
+		</div>
 
-        <div id="area-testPassphrase">
-            <h4>テスト用パスフレーズ：</h4>
-            <div>
-                abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon about
-            </div>
-        </div>
+		<div id="area-testPassphrase">
+			<h4>テスト用パスフレーズ：</h4>
+			<div>
+				abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon about
+			</div>
+		</div>
 
-        <div id="area-accountInfo" style="display: none;">
-            <!-- (1)パスフレーズの表示場所 -->
-            <h4>パスフレーズ：</h4>
-            <div id="lisk-passphrase"></div>
+		<div id="area-accountInfo" style="display: none;">
+			<!-- (1)パスフレーズの表示場所 -->
+			<h4>パスフレーズ：</h4>
+			<div id="lisk-passphrase"></div>
 
-            <!-- (2)アドレスの表示場所 -->
-            <h4>アドレス：</h4>
-            <div id="lisk-address"></div>
-            <div id="lisk-bufferAddress"></div>
+			<!-- (2)アドレスの表示場所 -->
+			<h4>アドレス：</h4>
+			<div id="lisk-address"></div>
+			<div id="lisk-bufferAddress"></div>
 
-            <!-- (3)公開鍵の表示場所 -->
-            <h4>公開鍵：</h4>
-            <div id="lisk-publicKey"></div>
-            
-            <!-- (4)残高の表示場所 -->
-            <h4>残高：</h4>
-            <div id="lisk-balance"></div>
-        </div>
+			<!-- (3)公開鍵の表示場所 -->
+			<h4>公開鍵：</h4>
+			<div id="lisk-publicKey"></div>
+			
+			<!-- (4)残高の表示場所 -->
+			<h4>残高：</h4>
+			<div id="lisk-balance"></div>
+		</div>
 
-        <div id="area-transactions" style="display: none;">
-            <!-- (5)残高の表示場所 -->
-            <h4>トランザクション（直近10件）：</h4>
-            <div id="lisk-transactions"></div>
-        </div>
+		<div id="area-transactions" style="display: none;">
+			<!-- (5)残高の表示場所 -->
+			<h4>トランザクション（直近10件）：</h4>
+			<div id="lisk-transactions"></div>
+		</div>
 
 		<script>
-            let _account = {};
-            
+			let _account = {};
+			
 			/*
 			 * アカウント情報初期化
 			 */
@@ -108,190 +108,190 @@
 				document.querySelector("#lisk-transactions").innerHTML = "";
 			}
 
-            /*
-             * クリア処理
-             */
-            const clear = () => {
-                clearAccountInfo();
-                clearTransactions();
-            }
+			/*
+			 * クリア処理
+			 */
+			const clear = () => {
+				clearAccountInfo();
+				clearTransactions();
+			}
 
-            /*
-             * アカウント作成処理
-             */
-            const createAccount = () => {
-                // パスフレーズを生成して画面に表示
-                const mnemonic = lisk.passphrase.Mnemonic.generateMnemonic();
-                document.querySelector("#lisk-passphrase").innerHTML = mnemonic;
+			/*
+			 * アカウント作成処理
+			 */
+			const createAccount = () => {
+				// パスフレーズを生成して画面に表示
+				const mnemonic = lisk.passphrase.Mnemonic.generateMnemonic();
+				document.querySelector("#lisk-passphrase").innerHTML = mnemonic;
 
-                // アドレスと公開鍵を取得して画面に表示
-                const addressAndPublicKey = lisk.cryptography.getAddressAndPublicKeyFromPassphrase(mnemonic);
-                const bufferAddress = addressAndPublicKey.address;
-                const publicKey = addressAndPublicKey.publicKey;
-                document.querySelector("#lisk-bufferAddress").innerHTML = `(${lisk.cryptography.bufferToHex(bufferAddress)})`;
-                document.querySelector("#lisk-publicKey").innerHTML = lisk.cryptography.bufferToHex(publicKey);
+				// アドレスと公開鍵を取得して画面に表示
+				const addressAndPublicKey = lisk.cryptography.getAddressAndPublicKeyFromPassphrase(mnemonic);
+				const bufferAddress = addressAndPublicKey.address;
+				const publicKey = addressAndPublicKey.publicKey;
+				document.querySelector("#lisk-bufferAddress").innerHTML = `(${lisk.cryptography.bufferToHex(bufferAddress)})`;
+				document.querySelector("#lisk-publicKey").innerHTML = lisk.cryptography.bufferToHex(publicKey);
 
-                // アドレスを取得して画面に表示
-                const address = lisk.cryptography.getLisk32AddressFromAddress(bufferAddress);
-                document.querySelector("#lisk-address").innerHTML = address;
+				// アドレスを取得して画面に表示
+				const address = lisk.cryptography.getLisk32AddressFromAddress(bufferAddress);
+				document.querySelector("#lisk-address").innerHTML = address;
 
-                // 残高は0LSKとする
-                document.querySelector("#lisk-balance").innerHTML = "0LSK";
+				// 残高は0LSKとする
+				document.querySelector("#lisk-balance").innerHTML = "0LSK";
 
-                // アカウント情報エリアを表示
+				// アカウント情報エリアを表示
 				document.querySelector("#area-accountInfo").style.display = "block";
-            }
+			}
 
-            /*
-             * アカウント情報表示
-             */
-            const showAccount = async(address) => {
-                // アカウント情報を取得し、見つからなかった場合は終了
-                const account = await getAccount(address);
-                if (account.error) {
-                    alert("アカウントが見つかりませんでした。");
-                    return false;
-                }
-                _account = account;
+			/*
+			 * アカウント情報表示
+			 */
+			const showAccount = async(address) => {
+				// アカウント情報を取得し、見つからなかった場合は終了
+				const account = await getAccount(address);
+				if (account.error) {
+					alert("アカウントが見つかりませんでした。");
+					return false;
+				}
+				_account = account;
 
-                // 見つかった場合は画面に表示
-                document.querySelector("#lisk-address").innerHTML = account.summary.address;
-                document.querySelector("#lisk-balance").innerHTML = `${lisk.transactions.convertBeddowsToLSK(account.summary.balance)}LSK`;
-                document.querySelector("#lisk-passphrase").innerHTML = "ひみつ";
+				// 見つかった場合は画面に表示
+				document.querySelector("#lisk-address").innerHTML = account.summary.address;
+				document.querySelector("#lisk-balance").innerHTML = `${lisk.transactions.convertBeddowsToLSK(account.summary.balance)}LSK`;
+				document.querySelector("#lisk-passphrase").innerHTML = "ひみつ";
 
-                // 公開鍵とバッファアドレスはパスフレーズから取得して表示
+				// 公開鍵とバッファアドレスはパスフレーズから取得して表示
 				const passphrase = document.querySelector("#enter-passphrase").value;
-                const addressAndPublicKey = lisk.cryptography.getAddressAndPublicKeyFromPassphrase(passphrase);
-                document.querySelector("#lisk-bufferAddress").innerHTML = `(${lisk.cryptography.bufferToHex(addressAndPublicKey.address)})`;
-                document.querySelector("#lisk-publicKey").innerHTML = lisk.cryptography.bufferToHex(addressAndPublicKey.publicKey);
+				const addressAndPublicKey = lisk.cryptography.getAddressAndPublicKeyFromPassphrase(passphrase);
+				document.querySelector("#lisk-bufferAddress").innerHTML = `(${lisk.cryptography.bufferToHex(addressAndPublicKey.address)})`;
+				document.querySelector("#lisk-publicKey").innerHTML = lisk.cryptography.bufferToHex(addressAndPublicKey.publicKey);
 
-                // アカウント情報エリアを表示
-                document.querySelector("#area-accountInfo").style.display = "block";
+				// アカウント情報エリアを表示
+				document.querySelector("#area-accountInfo").style.display = "block";
 
-                return true;
-            }
+				return true;
+			}
 
-            /*
-             * トランザクション情報表示
-             */
-            const showTransactions = async(address) => {
-                // トランザクション情報を取得し、見つからなかった場合は終了
-                const transactions = await getTransactions(address);
-                if (transactions.error || transactions.length === 0) {
-                    return;
-                }
-                
-                // 取得した情報を画面に表示
-                let html_transactions = "";
-                for (data of transactions) {
-                    html_transactions += `
-                        <div class="row-transaction">
-                        <div>ID：${data.id}</div>
-                        <div>タイプ：${data.moduleAssetName}</div>
-                        <div>送信者：${data.sender.address === address? "あなた": data.sender.address}</div>
-                        ${data.asset.recipient === undefined? "":
-                            `<div>受信者：${data.asset.recipient.address === address? "あなた": data.asset.recipient.address}</div>`
-                        }
-                        ${data.asset.amount === undefined? "":
-                            `<div>${data.sender.address === address? "送信":"受信"}枚数：${lisk.transactions.convertBeddowsToLSK(data.asset.amount)}LSK</div>`
-                        }
-                        <div>手数料：${lisk.transactions.convertBeddowsToLSK(data.fee)}LSK</div>
-                        ${data.asset.data === undefined? "":
-                            `<div>データ：${data.asset.data}</div>`
-                        }
-                        </div>
-                    `;
-                }
-                document.querySelector("#lisk-transactions").innerHTML = html_transactions;
+			/*
+			 * トランザクション情報表示
+			 */
+			const showTransactions = async(address) => {
+				// トランザクション情報を取得し、見つからなかった場合は終了
+				const transactions = await getTransactions(address);
+				if (transactions.error || transactions.length === 0) {
+					return;
+				}
+				
+				// 取得した情報を画面に表示
+				let html_transactions = "";
+				for (data of transactions) {
+					html_transactions += `
+						<div class="row-transaction">
+						<div>ID：${data.id}</div>
+						<div>タイプ：${data.moduleAssetName}</div>
+						<div>送信者：${data.sender.address === address? "あなた": data.sender.address}</div>
+						${data.asset.recipient === undefined? "":
+							`<div>受信者：${data.asset.recipient.address === address? "あなた": data.asset.recipient.address}</div>`
+						}
+						${data.asset.amount === undefined? "":
+							`<div>${data.sender.address === address? "送信":"受信"}枚数：${lisk.transactions.convertBeddowsToLSK(data.asset.amount)}LSK</div>`
+						}
+						<div>手数料：${lisk.transactions.convertBeddowsToLSK(data.fee)}LSK</div>
+						${data.asset.data === undefined? "":
+							`<div>データ：${data.asset.data}</div>`
+						}
+						</div>
+					`;
+				}
+				document.querySelector("#lisk-transactions").innerHTML = html_transactions;
 
-                // トランザクション情報エリアを表示
-                document.querySelector("#area-transactions").style.display = "block";
-            }
+				// トランザクション情報エリアを表示
+				document.querySelector("#area-transactions").style.display = "block";
+			}
 
 			/*
 			 * ログイン 
 			 */
 			const login = async() => {
-                // アカウント情報、トランザクション情報を初期化
-                clearAccountInfo();
-                clearTransactions();
+				// アカウント情報、トランザクション情報を初期化
+				clearAccountInfo();
+				clearTransactions();
 
 				// パスフレーズからlsk始まりのアドレスを取得
 				const passphrase = document.querySelector("#enter-passphrase").value;
 				const address = lisk.cryptography.getLisk32AddressFromPassphrase(passphrase);
 
 				// アカウント情報が取得できたら表示、取得できなければ終了
-                if (!await showAccount(address)) return;
+				if (!await showAccount(address)) return;
 
 				// トランザクション情報取得して表示
 				showTransactions(address);
 
-                // ログインエリア、テスト用パスフレーズエリアを非表示
-                document.querySelector("#area-login").style.display = "none";
-                document.querySelector("#area-testPassphrase").style.display = "none";
+				// ログインエリア、テスト用パスフレーズエリアを非表示
+				document.querySelector("#area-login").style.display = "none";
+				document.querySelector("#area-testPassphrase").style.display = "none";
 
-                // ログオフエリア、送信エリアを表示
-                document.querySelector("#area-logoff").style.display = "block";
-                document.querySelector("#area-send").style.display = "block";
+				// ログオフエリア、送信エリアを表示
+				document.querySelector("#area-logoff").style.display = "block";
+				document.querySelector("#area-send").style.display = "block";
 			}
 
-            /*
-             * ログオフ
-             */
-            const logoff = () => {
-                // アカウント情報、トランザクション情報を初期化
-                clearAccountInfo();
-                clearTransactions();
+			/*
+			 * ログオフ
+			 */
+			const logoff = () => {
+				// アカウント情報、トランザクション情報を初期化
+				clearAccountInfo();
+				clearTransactions();
 
-                // ログオフエリア、送信エリアを非表示
-                document.querySelector("#area-logoff").style.display = "none";
-                document.querySelector("#area-send").style.display = "none";
+				// ログオフエリア、送信エリアを非表示
+				document.querySelector("#area-logoff").style.display = "none";
+				document.querySelector("#area-send").style.display = "none";
 
-                // 入力値をクリア
+				// 入力値をクリア
 				document.querySelector("#enter-passphrase").value = "";
 				document.querySelector("#enter-amount").value = "";
 				document.querySelector("#enter-recipient").value = "";
 				document.querySelector("#enter-memo").value = "";
-                document.querySelector("#disp-fee").innerHTML = "???LSK";
+				document.querySelector("#disp-fee").innerHTML = "???LSK";
 
-                // ログインエリア、テスト用パスフレーズエリアを表示
-                document.querySelector("#area-login").style.display = "block";
-                document.querySelector("#area-testPassphrase").style.display = "block";
+				// ログインエリア、テスト用パスフレーズエリアを表示
+				document.querySelector("#area-login").style.display = "block";
+				document.querySelector("#area-testPassphrase").style.display = "block";
 
-                // 値をクリア
-                _account = {};
-                initializeCommonValue();
-            }
+				// 値をクリア
+				_account = {};
+				initializeCommonValue();
+			}
 
-            /*
-             * リロード
-             */
-            const reload = async() => {
+			/*
+			 * リロード
+			 */
+			const reload = async() => {
 				// パスフレーズからlsk始まりのアドレスを取得
 				const passphrase = document.querySelector("#enter-passphrase").value;
 				const address = lisk.cryptography.getLisk32AddressFromPassphrase(passphrase);
 
 				// アカウント情報が取得できたら表示、取得できなければ終了
-                if (!await showAccount(address)) return;
+				if (!await showAccount(address)) return;
 
 				// トランザクション情報取得して表示
 				showTransactions(address);
-            }
+			}
 
 			/*
 			 * パスフレーズチェック
 			 */
 			const checkPassphrase = (val) => {
-                // パスフレーズが正しくない場合はログインボタンを入力不可、正しい場合は入力可に変更
+				// パスフレーズが正しくない場合はログインボタンを入力不可、正しい場合は入力可に変更
 				const ret = lisk.passphrase.Mnemonic.validateMnemonic(val);
 				document.querySelector("#btn-login").disabled = !ret;
 			}
 
-            /*
-             * トランザクション生成
-             */
-            const createTransaction = () => {
-                // 画面の入力値を取得
+			/*
+			 * トランザクション生成
+			 */
+			const createTransaction = () => {
+				// 画面の入力値を取得
 				const passphrase = document.querySelector("#enter-passphrase").value;
 				const amount = document.querySelector("#enter-amount").value || "0";
 				const recipient = document.querySelector("#enter-recipient").value;
@@ -311,23 +311,23 @@
 						data: memo
 					}
 				}
-                return tokenTransferTx;
-            }
+				return tokenTransferTx;
+			}
 
-            /*
-             * トランザクション手数料取得処理
-             */
-            const getMinFee = async() => {
-                const scheme = await getTransferSchema();
-                const networkIdentifier = await getNetworkIdentifier();
-                const tokenTransferTx = createTransaction();
-                return lisk.transactions.computeMinFee(scheme, tokenTransferTx, {});
-            }
+			/*
+			 * トランザクション手数料取得処理
+			 */
+			const getMinFee = async() => {
+				const scheme = await getTransferSchema();
+				const networkIdentifier = await getNetworkIdentifier();
+				const tokenTransferTx = createTransaction();
+				return lisk.transactions.computeMinFee(scheme, tokenTransferTx, {});
+			}
 
-            /*
-             * トランザクション手数料表示処理
-             */
-            const showMinFee = async() => {
+			/*
+			 * トランザクション手数料表示処理
+			 */
+			const showMinFee = async() => {
 				// 画面の入力値を取得
 				const amount = document.querySelector("#enter-amount").value || "0";
 				const recipient = document.querySelector("#enter-recipient").value;
@@ -336,19 +336,19 @@
 				try {
 					lisk.cryptography.validateLisk32Address(recipient);
 				} catch(_err) {
-                    document.querySelector("#disp-fee").innerHTML = "???LSK";
+					document.querySelector("#disp-fee").innerHTML = "???LSK";
 					return;
 				}
 
 				if (+amount < 0) {
-                    document.querySelector("#disp-fee").innerHTML = "???LSK";
+					document.querySelector("#disp-fee").innerHTML = "???LSK";
 					return;
 				}
 
-                // 手数料を取得して表示
-                const fee = await getMinFee();
-                document.querySelector("#disp-fee").innerHTML = `${lisk.transactions.convertBeddowsToLSK(fee.toString())}LSK`;
-            }
+				// 手数料を取得して表示
+				const fee = await getMinFee();
+				document.querySelector("#disp-fee").innerHTML = `${lisk.transactions.convertBeddowsToLSK(fee.toString())}LSK`;
+			}
 
 			/*
 			 * 送信処理
@@ -373,8 +373,8 @@
 					return;
 				}
 
-                // 最新のアカウント情報取得するために再読み込み
-                await reload();
+				// 最新のアカウント情報取得するために再読み込み
+				await reload();
 
 				// 送信トランザクション設定
 				const tokenTransferTx = await createTransaction();
@@ -387,11 +387,11 @@
 				const answer = confirm(`${recipient} へ ${amount}LSK 送信します。\n送信手数料は${lisk.transactions.convertBeddowsToLSK(fee.toString())}LSKです。\nよろしいですか？`);
 				if (!answer) return;
 
-                // 送信処理用のスキーマ情報を取得
-                const scheme = await getTransferSchema();
+				// 送信処理用のスキーマ情報を取得
+				const scheme = await getTransferSchema();
 
-                // Liskネットワーク情報を取得
-                const networkIdentifier = await getNetworkIdentifier();
+				// Liskネットワーク情報を取得
+				const networkIdentifier = await getNetworkIdentifier();
 
 				// 送信トランザクションをパスフレーズで署名
 				const signedTx = lisk.transactions.signTransaction(
